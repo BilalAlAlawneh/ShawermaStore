@@ -25,9 +25,9 @@ public class OrderMenu {
             switch(choice){
                 case 1:
 
-                    System.out.println("Shawerma added");
+                    System.out.println("Shawerma added ");
                     ShawermaBuilder Shawerma = new ShawermaBuilder();
-                    Shawerma.BuildShawerma;
+                    Shawerma.BuildShawerma();
                     break;
                 case 2:
 
