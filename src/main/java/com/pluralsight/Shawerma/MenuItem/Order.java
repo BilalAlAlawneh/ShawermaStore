@@ -1,4 +1,4 @@
-package com.pluralsight.Shawerma;
+package com.pluralsight.Shawerma.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;

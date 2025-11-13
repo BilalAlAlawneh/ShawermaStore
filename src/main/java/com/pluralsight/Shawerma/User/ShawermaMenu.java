@@ -1,4 +1,4 @@
-package com.pluralsight.Shawerma;
+package com.pluralsight.Shawerma.User;
 
 import java.util.Scanner;
 

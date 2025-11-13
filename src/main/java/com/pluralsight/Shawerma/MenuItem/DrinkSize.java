@@ -1,4 +1,4 @@
-package com.pluralsight.Shawerma;
+package com.pluralsight.Shawerma.MenuItem;
 
 public enum DrinkSize {
     SMALL(2.00),

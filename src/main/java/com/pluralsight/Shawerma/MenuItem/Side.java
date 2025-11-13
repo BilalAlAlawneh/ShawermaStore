@@ -1,4 +1,4 @@
-package com.pluralsight.Shawerma;
+package com.pluralsight.Shawerma.MenuItem;
 
 public class Side extends MenuItem {
     private String name;
@@ -10,12 +10,16 @@ public class Side extends MenuItem {
 
     @Override
     public double getPrice(){
-        return 0.00;
+        return 1.50;
     }
 
     @Override
     public String getDetails(){
-        return "Side: " + name + "(Included)";
+        return "Side: " + name;
+    }
+
+    @Override public String toString(){
+        return getDetails();
     }
 
 }

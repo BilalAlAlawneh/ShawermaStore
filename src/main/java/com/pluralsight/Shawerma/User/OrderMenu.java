@@ -1,10 +1,19 @@
-package com.pluralsight.Shawerma;
+package com.pluralsight.Shawerma.User;
+
+import com.pluralsight.Shawerma.MenuItem.Drink;
+import com.pluralsight.Shawerma.MenuItem.Shawerma;
+import com.pluralsight.Shawerma.MenuItem.Side;
+import com.pluralsight.Shawerma.builder.DrinkBuilder;
+import com.pluralsight.Shawerma.builder.ShawermaBuilder;
+import com.pluralsight.Shawerma.builder.SideBuilder;
 
 import java.util.Scanner;
 
 public class OrderMenu {
 
     private Shawerma shawerma;
+    private Drink drink;
+    private Side side;
     Scanner scanner = new Scanner(System.in);
 
     public void startOrdering() {
@@ -31,14 +40,15 @@ public class OrderMenu {
                     System.out.println("✅ Shawerma added to your order.");
                     break;
                 case 2:
-
-                    System.out.println("Drink added");
+                    DrinkBuilder drinkBuilder = new DrinkBuilder();
+                     drink = drinkBuilder.buildDrink();
+                    System.out.println("✅ Added: " + drink.getDetails());
                     break;
                 case 3:
-
-                    System.out.println("Side added");
+                    SideBuilder sideBuilder = new SideBuilder();
+                    side = sideBuilder.buildSide();
+                    System.out.println("✅ Added: " + side.getDetails());
                     break;
-
                 case 4:
                     System.out.println("🧾 Order Details:");
 
@@ -46,12 +56,25 @@ public class OrderMenu {
                         System.out.println(shawerma);// Prints using Shawerma's toString()
                         System.out.println(shawerma.getPrice());
                     } else {
-                        System.out.println("❌ No Shawerma in your order.");
+                        System.out.println("❌ No items in your order.");
+                    }
+
+                    if(drink != null){
+                        System.out.println(drink);
+                        System.out.println(drink.getPrice());
+                    }
+
+                    if(side != null){
+                        System.out.println(side);
+                        System.out.println(side.getPrice());
                     }
 
                     ordering = false; // Ends the order menu
                     break;
                 case 0:
+                    shawerma = null;
+                    drink = null;
+                    side = null;
                     System.out.println("Order cancelled, back to main menu");
                     ordering = false;
                     break;
@@ -61,5 +84,4 @@ public class OrderMenu {
             }
         }
     }
-
 }

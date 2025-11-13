@@ -1,4 +1,4 @@
-package com.pluralsight.Shawerma;
+package com.pluralsight.Shawerma.MenuItem;
 
 public class Drink extends MenuItem {
     private DrinkSize size;
@@ -19,6 +19,10 @@ public class Drink extends MenuItem {
     public String getDetails() {
         return size.name().charAt(0) + size.name().substring(1).toLowerCase()
                 + " " + flavor + " Drink";
+    }
+    @Override
+    public String toString() {
+        return getDetails();
     }
 }
 

@@ -1,4 +1,7 @@
-package com.pluralsight.Shawerma;
+package com.pluralsight.Shawerma.builder;
+import com.pluralsight.Shawerma.MenuItem.Shawerma;
+import com.pluralsight.Shawerma.MenuItem.ShawermaSize;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,7 +12,6 @@ public class ShawermaBuilder {
     private boolean toasted;
     private ShawermaSize size;
     private double breadPrice = 0.0;
-    private double premiumToppingPrice = 0.0;
     private final List<String> regularToppings = new ArrayList<>();
     private final List<String> premiumToppings = new ArrayList<>();
 
@@ -107,8 +109,8 @@ public class ShawermaBuilder {
                         System.out.println("What type of toppings do you want?");
                         System.out.println("1)Spicy sauce");
                         System.out.println("2)Pomegranate Molasses");
-                        System.out.println("3)Extra meat(Premium topping $1 extra)");
-                        System.out.println("4)Cheese(Premium topping $1 extra");
+                        System.out.println("3)Extra meat($0.75 for SMALL, $1.50 for MEDIUM, $2.25 for LARGE)");
+                        System.out.println("4)Cheese($0.75 for SMALL, $1.50 for MEDIUM, $2.25 for LARGE)");
                         int toppingChoice = scanner.nextInt();
 
                         switch (toppingChoice) {
@@ -122,12 +124,10 @@ public class ShawermaBuilder {
                                 break;
                             case 3:
                                 System.out.println("Added Extra meat.");
-                                premiumToppingPrice += 1.00;
                                 premiumToppings.add("Extra Meat");
                                 break;
                             case 4:
                                 System.out.println("Added Cheese.");
-                                premiumToppingPrice += 1.00;
                                 premiumToppings.add("Extra Cheese");
 
                                 break;
@@ -159,7 +159,7 @@ public class ShawermaBuilder {
 
             }
         }
-        Shawerma shawerma = new Shawerma(size, bread, meat, toasted, breadPrice, premiumToppingPrice, regularToppings, premiumToppings);
+        Shawerma shawerma = new Shawerma(size, bread, meat, toasted, breadPrice, regularToppings, premiumToppings);
         return shawerma;
     }
 }
