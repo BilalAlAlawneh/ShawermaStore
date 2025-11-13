@@ -7,28 +7,29 @@ public class Shawerma extends MenuItem {
     private ShawermaSize size;
     private String bread;
     private String meat;
-    private double breadPrice;
     private boolean toasted;
+
+    private double breadPrice;
+    private double premiumToppingPrice;
 
     private List<String> regularToppings = new ArrayList<>();
     private List<String> premiumToppings = new ArrayList<>();
 
-    public Shawerma(ShawermaSize size, String bread, String meat, double breadPrice, boolean toasted) {
+
+    public Shawerma(ShawermaSize size, String bread, String meat, boolean toasted,
+                    double breadPrice, double premiumToppingPrice,
+                    List<String> regularToppings, List<String> premiumToppings) {
         super("Shawerma");
         this.size = size;
         this.bread = bread;
         this.meat = meat;
-        this.breadPrice;
         this.toasted = toasted;
+        this.breadPrice = breadPrice;
+        this.premiumToppingPrice = premiumToppingPrice;
+        this.regularToppings = regularToppings;
+        this.premiumToppings = premiumToppings;
     }
 
-    public void addTopping(String topping) {
-        regularToppings.add(topping);
-    }
-
-    public void addPremiumTopping(String topping) {
-        premiumToppings.add(topping);
-    }
 
     @Override
     public double getPrice() {

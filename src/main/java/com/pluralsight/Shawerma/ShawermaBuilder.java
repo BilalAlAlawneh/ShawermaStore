@@ -1,14 +1,21 @@
 package com.pluralsight.Shawerma;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ShawermaBuilder {
-
+    private String bread;
+    private String meat;
+    private boolean toasted;
+    private ShawermaSize size;
     private double breadPrice = 0.0;
-
+    private double premiumToppingPrice = 0.0;
+    private final List<String> regularToppings = new ArrayList<>();
+    private final List<String> premiumToppings = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
 
-    public void BuildShawerma(){
+    public Shawerma BuildShawerma(){
         boolean building = true;
 
         while (building){
@@ -19,9 +26,9 @@ public class ShawermaBuilder {
             System.out.println("2)medium");
             System.out.println("3)large");
             System.out.print("Choice: ");
-            int size = scanner.nextInt();
+            int sizeChoice = scanner.nextInt();
 
-            switch (size){
+            switch (sizeChoice){
                 case 1:
                     size = ShawermaSize.SMALL;
                     break;
@@ -30,6 +37,9 @@ public class ShawermaBuilder {
                     break;
                 case 3:
                     size = ShawermaSize.LARGE;
+                    break;
+                default:
+                    size = ShawermaSize.MEDIUM;
 
             }
 
@@ -53,7 +63,21 @@ public class ShawermaBuilder {
 
                     switch (breadChoice){
                         case 1:
-                            bread
+                            bread = "Pita";
+                            breadPrice = 0.0;
+                            break;
+                        case 2:
+                            bread = "Lavash";
+                            breadPrice = 1.0;
+                            break;
+                        case 3:
+                            bread = "Tortilla";
+                            breadPrice = 1.0;
+                            break;
+                        default:
+                            bread = "Pita";
+                            breadPrice = 0.0;
+                            break;
                     }
                     break;
 
@@ -62,6 +86,18 @@ public class ShawermaBuilder {
                     System.out.println("1)Chicken");
                     System.out.println("2)lamb");
                     System.out.print("Please choose: ");
+                    int meatChoice = scanner.nextInt();
+                    switch (meatChoice) {
+                        case 1:
+                            meat = "Chicken";
+                            break;
+                        case 2:
+                            meat = "Lamb";
+                            break;
+                        default:
+                            meat = "Chicken";
+                            break;
+                    }
                     break;
 
                 case 3:
@@ -70,6 +106,43 @@ public class ShawermaBuilder {
                     System.out.println("2)Pomegranate Molasses");
                     System.out.println("3)Extra meat(Premium topping $1 extra)");
                     System.out.println("4)Cheese(Premium topping $1 extra");
+                    int toppingChoice = scanner.nextInt();
+
+                    switch (toppingChoice) {
+                        case 1:
+                            System.out.println("Added Spicy sauce.");
+                            regularToppings.add("Spicy Sauce");
+                            break;
+                        case 2:
+                            System.out.println("Added Pomegranate Molasses.");
+                            regularToppings.add("Pomegranate Molasses");
+                            break;
+                        case 3:
+                            System.out.println("Added Extra meat.");
+                            premiumToppingPrice += 1.00;
+                            premiumToppings.add("Extra Meat");
+                            break;
+                        case 4:
+                            System.out.println("Added Cheese.");
+                            premiumToppingPrice += 1.00;
+                            premiumToppings.add("Extra Cheese");
+
+                            break;
+                        default:
+                            System.out.println("Invalid choice.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Would you like it toasted?");
+                    System.out.print("Choice(yes or no): ");
+                    scanner.nextLine();
+                    String toasting = scanner.nextLine().toLowerCase();
+                    if(toasting.equalsIgnoreCase("yes")){
+                        toasted = true;
+                    } else if (toasting.equalsIgnoreCase("no")) {
+                        toasted = false;
+                    }
                     break;
 
                 case 0:
@@ -78,5 +151,7 @@ public class ShawermaBuilder {
                     break;
             }
         }
+        Shawerma shawerma = new Shawerma(size, bread, meat, toasted, breadPrice, premiumToppingPrice, regularToppings, premiumToppings);
+        return shawerma;
     }
 }
