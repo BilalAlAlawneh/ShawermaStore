@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 public class OrderMenu {
 
+    private Shawerma shawerma;
     Scanner scanner = new Scanner(System.in);
 
-    public void startOrdering(){
+    public void startOrdering() {
         boolean ordering = true;
 
-        while (ordering){
+        while (ordering) {
 
             System.out.println("\n🧾 ORDER MENU:");
             System.out.println("1) Add Shawarma");
@@ -22,12 +23,12 @@ public class OrderMenu {
             int choice = scanner.nextInt();
             scanner.nextLine();
 
-            switch(choice){
+            switch (choice) {
                 case 1:
 
-                    System.out.println("Shawerma added ");
-                    ShawermaBuilder Shawerma = new ShawermaBuilder();
-                    Shawerma.BuildShawerma();
+                    ShawermaBuilder builder = new ShawermaBuilder();
+                    shawerma = builder.BuildShawerma(); // Save it to the field
+                    System.out.println("✅ Shawerma added to your order.");
                     break;
                 case 2:
 
@@ -39,11 +40,17 @@ public class OrderMenu {
                     break;
 
                 case 4:
-                    System.out.println("Order details:");
-                    //classes called here for details and confirmation of checkout
-                    ordering = false;
-                    break;
+                    System.out.println("🧾 Order Details:");
 
+                    if (shawerma != null) {
+                        System.out.println(shawerma);// Prints using Shawerma's toString()
+                        System.out.println(shawerma.getPrice());
+                    } else {
+                        System.out.println("❌ No Shawerma in your order.");
+                    }
+
+                    ordering = false; // Ends the order menu
+                    break;
                 case 0:
                     System.out.println("Order cancelled, back to main menu");
                     ordering = false;
@@ -54,4 +61,5 @@ public class OrderMenu {
             }
         }
     }
+
 }

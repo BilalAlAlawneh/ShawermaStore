@@ -47,4 +47,8 @@ public class Shawerma extends MenuItem {
                 "\nRegular Toppings: " + regularToppings +
                 "\nPremium Toppings: " + premiumToppings;
     }
+    @Override
+    public String toString() {
+        return getDetails();
+    }
 }

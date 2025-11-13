@@ -9,7 +9,7 @@ public enum ShawermaSize {
     private final double meatPrice;
     private final double premiumToppingPrice;
 
-    ShawarmaSize(double basePrice, double meatPrice, double premiumToppingPrice) {
+    ShawermaSize(double basePrice, double meatPrice, double premiumToppingPrice) {
         this.basePrice = basePrice;
         this.meatPrice = meatPrice;
         this.premiumToppingPrice = premiumToppingPrice;
