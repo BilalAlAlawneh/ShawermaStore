@@ -1,8 +1,11 @@
 package com.pluralsight.Shawerma;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class ShawermaBuilder {
+
+    private double breadPrice = 0.0;
+
+
     Scanner scanner = new Scanner(System.in);
 
     public void BuildShawerma(){
@@ -18,6 +21,18 @@ public class ShawermaBuilder {
             System.out.print("Choice: ");
             int size = scanner.nextInt();
 
+            switch (size){
+                case 1:
+                    size = ShawermaSize.SMALL;
+                    break;
+                case 2:
+                    size = ShawermaSize.MEDIUM;
+                    break;
+                case 3:
+                    size = ShawermaSize.LARGE;
+
+            }
+
             System.out.println("Now customize your Shawerma:");
             System.out.println("1)type of bread");
             System.out.println("2)type of meat");
@@ -31,9 +46,15 @@ public class ShawermaBuilder {
                 case 1:
                     System.out.println("What type of bread do you need?");
                     System.out.println("1)pita");
-                    System.out.println("2)lavash");
-                    System.out.println("3)tortilla");
+                    System.out.println("2)lavash($1 extra)");
+                    System.out.println("3)tortilla($1 extra)");
                     System.out.print("Please choose: ");
+                    int breadChoice = scanner.nextInt();
+
+                    switch (breadChoice){
+                        case 1:
+                            bread
+                    }
                     break;
 
                 case 2:
@@ -56,7 +77,6 @@ public class ShawermaBuilder {
                     building = false;
                     break;
             }
-
         }
     }
 }
