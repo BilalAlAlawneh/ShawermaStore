@@ -115,6 +115,8 @@ public class ShawermaBuilder {
                         System.out.println("2️⃣ POMEGRANATE MOLASSES");
                         System.out.println("3️⃣ EXTRA MEAT($0.75 for SMALL, $1.50 for MEDIUM, $2.25 for LARGE)");
                         System.out.println("4️⃣ CHEESE($0.75 for SMALL, $1.50 for MEDIUM, $2.25 for LARGE)");
+                        System.out.println("=================================");
+                        System.out.print("Please choose: ");
                         int toppingChoice = scanner.nextInt();
 
                         switch (toppingChoice) {

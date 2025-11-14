@@ -69,13 +69,13 @@ public class OrderMenu {
                     System.out.println("=================================");
                     System.out.print("➡️  Choose an option: ");
                     int confirmChoice = scanner.nextInt();
-                    scanner.nextLine(); // consume newline
+                    scanner.nextLine();
 
                     switch (confirmChoice) {
                         case 1:
                             ReceiptWriter.writeReceipt(order);
                             System.out.println("✅ Order confirmed! Receipt saved.");
-                            order.clearOrder(); // reset for new order
+                            order.clearOrder();
                             break;
 
                         case 2:

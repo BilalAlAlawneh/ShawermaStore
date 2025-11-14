@@ -12,7 +12,7 @@ public class ReceiptWriter {
 
     public static void writeReceipt(Order order) {
         if (order == null || order.isEmpty()) {
-            return; // Don't write empty orders
+            return;
         }
 
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
