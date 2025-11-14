@@ -7,10 +7,11 @@ public class SideBuilder {
     private Scanner scanner = new Scanner(System.in);
 
     public Side buildSide() {
-        System.out.println("Choose a side:");
-        System.out.println("1) French Fries ($1.50)");
-        System.out.println("2) House Salad ($1.50)");
-        System.out.print("Your choice: ");
+        System.out.println("\n========= SIZE =========");
+        System.out.println("1️⃣  FRENCH FRIES");
+        System.out.println("2️⃣  HOUSE SALAD");
+        System.out.println("=================================");
+        System.out.print("➡️  Choose an option: ");
 
         int choice = scanner.nextInt();
         scanner.nextLine(); // consume newline

@@ -63,10 +63,11 @@ public class OrderMenu {
                     System.out.println(order.getOrderDetails());
 
                     // Ask to confirm or cancel
-                    System.out.println("\nWould you like to:");
-                    System.out.println("1) Confirm Order");
-                    System.out.println("2) Cancel Order");
-                    System.out.print("Choice: ");
+                    System.out.println("\n========= 🧾 ORDER MENU =========");
+                    System.out.println("1️⃣  Confirm Order");
+                    System.out.println("2️⃣  Cancel Order");
+                    System.out.println("=================================");
+                    System.out.print("➡️  Choose an option: ");
                     int confirmChoice = scanner.nextInt();
                     scanner.nextLine(); // consume newline
 

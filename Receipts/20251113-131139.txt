@@ -1,0 +1,8 @@
+- Medium Shawarma on Lavash with Chicken (Toasted)
+Regular Toppings: []
+Premium Toppings: [Extra Meat] | $9.50
+- Medium Lemonade Drink | $2.50
+- Side: French Fries | $1.50
+
+--------------------------
+Total: $13.50

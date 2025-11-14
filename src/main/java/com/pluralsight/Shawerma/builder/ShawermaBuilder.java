@@ -21,13 +21,14 @@ public class ShawermaBuilder {
         boolean building = true;
 
         while (building){
-            System.out.println("Build your Shawerma ");
+            System.out.println("Build your Shawerma 🥙");
 
-            System.out.println("Please pick your size first:");
-            System.out.println("1)small");
-            System.out.println("2)medium");
-            System.out.println("3)large");
-            System.out.print("Choice: ");
+            System.out.println("\n========= SIZE =========");
+            System.out.println("1️⃣  SMALL");
+            System.out.println("2️⃣  MEDIUM");
+            System.out.println("3️⃣  LARGE");
+            System.out.println("=================================");
+            System.out.print("➡️  Choose an option: ");
             int sizeChoice = scanner.nextInt();
 
             switch (sizeChoice){
@@ -47,22 +48,24 @@ public class ShawermaBuilder {
 
             boolean customizing = true;
             while(customizing) {
-                System.out.println("Now customize your Shawerma:");
-                System.out.println("1)type of bread");
-                System.out.println("2)type of meat");
-                System.out.println("3)toppings");
-                System.out.println("4)toasted");
-                System.out.println("0)back to order menu ");
+                System.out.println("\n========= CUSTOMIZATION =========");
+                System.out.println("1️⃣  BREAD");
+                System.out.println("2️⃣  MEAT");
+                System.out.println("3️⃣  TOPPINGS");
+                System.out.println("4️⃣  TOASTED");
+                System.out.println("0️⃣  MAIN PAGE");
 
-                System.out.print("Please choose: ");
+                System.out.println("=================================");
+                System.out.print("➡️  Choose an option: ");
                 int choice = scanner.nextInt();
 
                 switch (choice) {
                     case 1:
-                        System.out.println("What type of bread do you need?");
-                        System.out.println("1)pita");
-                        System.out.println("2)lavash($1 extra)");
-                        System.out.println("3)tortilla($1 extra)");
+                        System.out.println("\n========= BREAD =========");
+                        System.out.println("1️⃣ PITA");
+                        System.out.println("2️⃣ LAVASH ($1 EXTRA)");
+                        System.out.println("3️⃣ TORTILLA ($1 EXTRA)");
+                        System.out.println("=================================");
                         System.out.print("Please choose: ");
                         int breadChoice = scanner.nextInt();
 
@@ -87,9 +90,10 @@ public class ShawermaBuilder {
                         break;
 
                     case 2:
-                        System.out.println("What type of meat do you want?");
-                        System.out.println("1)Chicken");
-                        System.out.println("2)lamb");
+                        System.out.println("\n========= MEAT =========");
+                        System.out.println("1️⃣ CHICKEN");
+                        System.out.println("2️⃣ MEAT");
+                        System.out.println("=================================");
                         System.out.print("Please choose: ");
                         int meatChoice = scanner.nextInt();
                         switch (meatChoice) {
@@ -106,11 +110,11 @@ public class ShawermaBuilder {
                         break;
 
                     case 3:
-                        System.out.println("What type of toppings do you want?");
-                        System.out.println("1)Spicy sauce");
-                        System.out.println("2)Pomegranate Molasses");
-                        System.out.println("3)Extra meat($0.75 for SMALL, $1.50 for MEDIUM, $2.25 for LARGE)");
-                        System.out.println("4)Cheese($0.75 for SMALL, $1.50 for MEDIUM, $2.25 for LARGE)");
+                        System.out.println("\n========= TOPPINGS =========");
+                        System.out.println("1️⃣ SPICY SAUCE");
+                        System.out.println("2️⃣ POMEGRANATE MOLASSES");
+                        System.out.println("3️⃣ EXTRA MEAT($0.75 for SMALL, $1.50 for MEDIUM, $2.25 for LARGE)");
+                        System.out.println("4️⃣ CHEESE($0.75 for SMALL, $1.50 for MEDIUM, $2.25 for LARGE)");
                         int toppingChoice = scanner.nextInt();
 
                         switch (toppingChoice) {
@@ -137,10 +141,14 @@ public class ShawermaBuilder {
                         break;
 
                     case 4:
-                        System.out.println("Would you like it toasted?");
-                        System.out.print("Choice(yes or no): ");
+                        System.out.println("\n========= TOASTED =========");
+                        System.out.print("➡️ (yes or no): ");
                         scanner.nextLine();
                         String toasting = scanner.nextLine().toLowerCase();
+                        while (!toasting.equals("yes") && !toasting.equals("no")) {
+                            System.out.print("❌ Please type only 'yes' or 'no': ");
+                            toasting = scanner.nextLine().toLowerCase();
+                        }
                         if (toasting.equalsIgnoreCase("yes")) {
                             toasted = true;
                         } else if (toasting.equalsIgnoreCase("no")) {
@@ -149,7 +157,7 @@ public class ShawermaBuilder {
                         break;
 
                     case 0:
-                        System.out.println("Taking you back to main page");
+                        System.out.println("\n========= MAIN PAGE =========");
                         building = false;
                         customizing = false;
                         break;

@@ -12,11 +12,12 @@ public class DrinkBuilder {
     Scanner scanner = new Scanner(System.in);
 
     public Drink buildDrink(){
-        System.out.println("Choose your drink type:");
-        System.out.println("1) Cola");
-        System.out.println("2) Lemonade");
-        System.out.println("3) Orange Juice");
-        System.out.print("Choice: ");
+        System.out.println("\n========= DRINK =========");
+        System.out.println("1️⃣  COLA");
+        System.out.println("2️⃣  LEMONADE");
+        System.out.println("3️⃣  ORANGE JUICE");
+        System.out.println("=================================");
+        System.out.print("➡️  Choose an option: ");
 
         int typeChoice = scanner.nextInt();
         scanner.nextLine(); // consume newline
@@ -35,12 +36,12 @@ public class DrinkBuilder {
                 System.out.println("Invalid choice. Defaulting to Cola.");
                 flavor = "Cola";
         }
-                System.out.println("Choose drink size:");
-                System.out.println("1) Small ($2.00)");
-                System.out.println("2) Medium ($2.50)");
-                System.out.println("3) Large ($3.00)");
-                System.out.print("Choice: ");
-
+        System.out.println("\n========= DRINK SIZE =========");
+        System.out.println("1️⃣  SMALL");
+        System.out.println("2️⃣  MEDIUM");
+        System.out.println("3️⃣  LARGE");
+        System.out.println("=================================");
+        System.out.print("➡️  Choose an option: ");
                 int sizeChoice = scanner.nextInt();
         switch (sizeChoice) {
             case 1:
@@ -61,6 +62,7 @@ public class DrinkBuilder {
         return drink;
         }
     }
+
 
 
 

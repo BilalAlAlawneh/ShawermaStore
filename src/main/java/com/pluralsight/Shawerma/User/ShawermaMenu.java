@@ -11,9 +11,11 @@ public class ShawermaMenu {
 
         while(running){
 
-            System.out.println("Welcome to the shawerma store:");
-            System.out.println("Press 1 for new order");
-            System.out.print("Press 0 to exit: ");
+            System.out.println("\n========= SHAWERMA STORE =========");
+            System.out.println("1️⃣ NEW ORDER");
+            System.out.println("0️⃣ EXIT");
+            System.out.println("=================================");
+            System.out.print("➡️  Choose an option: ");
             ordering = scanner.nextInt();
 
             switch(ordering){
