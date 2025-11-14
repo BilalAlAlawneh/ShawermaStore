@@ -7,10 +7,6 @@ public abstract class MenuItem {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public abstract double getPrice();
 
     public abstract String getDetails();

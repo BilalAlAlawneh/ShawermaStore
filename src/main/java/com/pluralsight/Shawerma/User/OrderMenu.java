@@ -1,6 +1,7 @@
 package com.pluralsight.Shawerma.User;
 
 import com.pluralsight.Shawerma.MenuItem.Drink;
+import com.pluralsight.Shawerma.MenuItem.ReceiptWriter;
 import com.pluralsight.Shawerma.MenuItem.Shawerma;
 import com.pluralsight.Shawerma.MenuItem.Side;
 import com.pluralsight.Shawerma.builder.DrinkBuilder;
@@ -11,9 +12,8 @@ import java.util.Scanner;
 
 public class OrderMenu {
 
-    private Shawerma shawerma;
-    private Drink drink;
-    private Side side;
+    private Order order = new Order();
+
     Scanner scanner = new Scanner(System.in);
 
     public void startOrdering() {
@@ -21,14 +21,14 @@ public class OrderMenu {
 
         while (ordering) {
 
-            System.out.println("\n🧾 ORDER MENU:");
-            System.out.println("1) Add Shawarma");
-            System.out.println("2) Add Drink");
-            System.out.println("3) Add Side");
-            System.out.println("4) View Order & Checkout");
-            System.out.println("0) Cancel Order");
-
-            System.out.print("Choose an option: ");
+            System.out.println("\n========= 🧾 ORDER MENU =========");
+            System.out.println("1️⃣  Add Shawarma");
+            System.out.println("2️⃣  Add Drink");
+            System.out.println("3️⃣  Add Side");
+            System.out.println("4️⃣  View Order & Checkout");
+            System.out.println("0️⃣  Cancel Order");
+            System.out.println("=================================");
+            System.out.print("➡️  Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -36,45 +36,59 @@ public class OrderMenu {
                 case 1:
 
                     ShawermaBuilder builder = new ShawermaBuilder();
-                    shawerma = builder.BuildShawerma(); // Save it to the field
+                    Shawerma shawerma = builder.BuildShawerma();// Save it to the field
+                    order.addItem(shawerma);
                     System.out.println("✅ Shawerma added to your order.");
                     break;
                 case 2:
                     DrinkBuilder drinkBuilder = new DrinkBuilder();
-                     drink = drinkBuilder.buildDrink();
+                    Drink drink = drinkBuilder.buildDrink();
+                    order.addItem(drink);
                     System.out.println("✅ Added: " + drink.getDetails());
                     break;
                 case 3:
                     SideBuilder sideBuilder = new SideBuilder();
-                    side = sideBuilder.buildSide();
+                    Side side = sideBuilder.buildSide();
+                    order.addItem(side);
                     System.out.println("✅ Added: " + side.getDetails());
                     break;
                 case 4:
-                    System.out.println("🧾 Order Details:");
-
-                    if (shawerma != null) {
-                        System.out.println(shawerma);// Prints using Shawerma's toString()
-                        System.out.println(shawerma.getPrice());
-                    } else {
-                        System.out.println("❌ No items in your order.");
+                    if (order.isEmpty()) {
+                        System.out.println("❌ Your order is empty.");
+                        break;
                     }
 
-                    if(drink != null){
-                        System.out.println(drink);
-                        System.out.println(drink.getPrice());
+                    // Show order summary
+                    System.out.println("\n🧾 Your Order:");
+                    System.out.println(order.getOrderDetails());
+
+                    // Ask to confirm or cancel
+                    System.out.println("\nWould you like to:");
+                    System.out.println("1) Confirm Order");
+                    System.out.println("2) Cancel Order");
+                    System.out.print("Choice: ");
+                    int confirmChoice = scanner.nextInt();
+                    scanner.nextLine(); // consume newline
+
+                    switch (confirmChoice) {
+                        case 1:
+                            ReceiptWriter.writeReceipt(order);
+                            System.out.println("✅ Order confirmed! Receipt saved.");
+                            order.clearOrder(); // reset for new order
+                            break;
+
+                        case 2:
+                            order.clearOrder();
+                            System.out.println("❌ Order canceled.");
+                            break;
+
+                        default:
+                            System.out.println("Invalid option.");
                     }
 
-                    if(side != null){
-                        System.out.println(side);
-                        System.out.println(side.getPrice());
-                    }
-
-                    ordering = false; // Ends the order menu
                     break;
                 case 0:
-                    shawerma = null;
-                    drink = null;
-                    side = null;
+                    order = null;
                     System.out.println("Order cancelled, back to main menu");
                     ordering = false;
                     break;
